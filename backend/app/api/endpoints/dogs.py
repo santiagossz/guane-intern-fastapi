@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends
+
+from ..celery.worker import create_task
+from ..authentication import auth_user
 from ..schemas import Dogs, dogs_pd, dogsIn_pd
 from ..crud import get_all, get_is_adopted, get_entity, update_entity, new_entity, delete_entity
 
-from ..authentication import auth_user
-from ..worker import create_task
 
 dogs = APIRouter(prefix="/api/dogs", tags=["Dogs"])
 
@@ -15,8 +16,6 @@ async def all_dogs():
 
 @dogs.get("/is_adopted")
 async def adopted_dogs():
-    # task = create_task.delay()
-    # print(task)
     return await get_is_adopted(dogs_pd, Dogs)
 
 
@@ -27,6 +26,8 @@ async def dog_by_name(name: str):
 
 @dogs.post("/{name}", response_model=dogs_pd)
 async def new_dog(dog: dogsIn_pd, user_id: int = Depends(auth_user)):
+    task = create_task.delay()
+    print(task)
     return await new_entity(dog, dogs_pd, Dogs, user_id, dogs=True)
 
 

@@ -15,11 +15,14 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.2.0
 fastapi==0.70.0
+flower==1.0.0
 h11==0.12.0
+humanize==3.12.0
 idna==3.2
 iso8601==0.1.16
 kombu==5.1.0
 passlib==1.7.4
+prometheus-client==0.11.0
 prompt-toolkit==3.0.20
 pycodestyle==2.8.0
 pycparser==2.20
@@ -34,6 +37,7 @@ six==1.16.0
 sniffio==1.2.0
 starlette==0.16.0
 toml==0.10.2
+tornado==6.1
 tortoise-orm==0.17.8
 typing-extensions==3.10.0.2
 urllib3==1.26.7
