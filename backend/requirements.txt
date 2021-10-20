@@ -4,9 +4,11 @@ anyio==3.3.3
 asgiref==3.4.1
 asyncpg==0.24.0
 autopep8==1.5.7
+bcrypt==3.2.0
 billiard==3.6.4.0
 celery==5.1.2
 certifi==2021.10.8
+cffi==1.15.0
 charset-normalizer==2.0.7
 click==7.1.2
 click-didyoumean==0.3.0
@@ -20,6 +22,7 @@ kombu==5.1.0
 passlib==1.7.4
 prompt-toolkit==3.0.20
 pycodestyle==2.8.0
+pycparser==2.20
 pydantic==1.8.2
 PyJWT==2.3.0
 pypika-tortoise==0.1.1

@@ -3,7 +3,7 @@ from tortoise import Tortoise
 
 from .models import Dogs,User
 
-Tortoise.init_models(['app.api.models'], 'models') 
+Tortoise.init_models(['backend.app.api.models'], 'models') 
 
 
 ## serialized model for Dogs
