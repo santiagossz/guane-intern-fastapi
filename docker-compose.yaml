@@ -1,0 +1,28 @@
+
+version: "3"
+
+services: 
+    # db:
+    #     hostname: test_db
+    #     image: postgres
+    #     environment:
+    #     - PSQL_USER=postgres
+    #     - PSQ_PSSW=gb-test
+    #     - PSQL_DB=GB
+    #     ports: 
+    #     - "5011:5432"
+
+
+    backend:
+        build: ./backend
+        volumes:
+        - ".:/app"
+        environment:
+        - PSQL_HOST=test_db
+        - PSQL_USER=postgres
+        - PSQ_PSSW=gb-test
+        - PSQL_DB=GB 
+        ports: 
+        - "5010:5010"
+        # depends_on:
+        #     - db
