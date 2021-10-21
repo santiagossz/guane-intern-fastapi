@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 
 from ..celery.worker import create_task
 from ..authentication import auth_user
-from ..schemas import Dogs, dogs_pd, dogsIn_pd
+from ..schemas import Dogs, dogs_pd, dogsIn_pd,dogsUp_pd
 from ..crud import get_all, get_is_adopted, get_entity, update_entity, new_entity, delete_entity
 
 
@@ -32,7 +32,7 @@ async def new_dog(dog: dogsIn_pd, user_id: int = Depends(auth_user)):
 
 
 @dogs.put("/{name}")
-async def update_dog(name: str, update_picture: bool, dog: dogsIn_pd):
+async def update_dog(name: str, update_picture: bool, dog: dogsUp_pd):
     return await update_entity(name, dog, dogs_pd, Dogs, update_picture, dogs=True)
 
 

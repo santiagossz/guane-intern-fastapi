@@ -1,5 +1,6 @@
 import os
-from fastapi import FastAPI
+import requests
+from fastapi import FastAPI,File
 from tortoise.contrib.fastapi import register_tortoise
 
 
@@ -33,3 +34,9 @@ async def read_root():
 app.include_router(auth)
 app.include_router(users)
 app.include_router(dogs)
+
+@app.post("/api/files",tags=["Files"])
+async def read_root(file:bytes=File(...)):
+    response=requests.post('https://gttb.guane.dev/api/files',files={'file':file})
+    response = response.json() if response.status_code ==201 else response.reason
+    return response

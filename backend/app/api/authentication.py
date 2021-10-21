@@ -19,7 +19,7 @@ async def authenticate_user(name: str, password: str):
     return False
 
 
-@auth.post('')
+@auth.post('',tags=["Login"])
 async def generate_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = await authenticate_user(form_data.username, form_data.password)
     if not user:

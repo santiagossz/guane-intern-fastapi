@@ -7,8 +7,8 @@ services:
     restart: always
     environment:
       - POSTGRES_PASSWORD=guane
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
+      - POSTGRES_DB=guane
+      - POSTGRES_USER=guane
     ports:
       - "5050:5432"
     volumes:
@@ -20,9 +20,9 @@ services:
       - ".:/app"
     environment:
       - PSQL_HOST=guane
-      - PSQL_USER=postgres
+      - PSQL_USER=guane
       - PSQ_PSSW=guane
-      - PSQL_DB=postgres
+      - PSQL_DB=guane
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     ports:
